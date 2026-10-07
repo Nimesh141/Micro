@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+@import "tailwindcss";
+
+:root {
+    /* Core Pastel Color Palette */
+    --color-bg-pale-green: #f2ffdf;
+    --color-bg-cyan: #c4f1f7;
+    --color-bg-lavender: #c9bdf2;
+    --color-bg-white: #ffffff;
+    --color-text-charcoal: #202020;
+    --color-border-dark: #202020;
+    --color-border-muted: #536d6b;
+    --color-text-muted: #4a6361;
+
+    /* Typography */
+    --font-heading: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+    --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+    /* Editorial Flat Brutalist Shadow */
+    --shadow-flat-sm: 2px 2px 0px var(--color-border-dark);
+    --shadow-flat: 4px 4px 0px var(--color-border-dark);
+    --shadow-flat-lg: 6px 6px 0px var(--color-border-dark);
+    --shadow-flat-hover: 6px 6px 0px var(--color-border-dark);
+
+    /* Radius (Slightly rounded, geometric feel) */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+}
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-pale-green);
+    color: var(--color-text-charcoal);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+input,
+textarea,
+select {
+    font-family: var(--font-body);
+}
+
+/* Page specific background themes */
+.page-landing {
+    background-color: var(--color-bg-pale-green);
+}
+
+.page-auth {
+    background-color: #faf8e7; /* Light warm cream variant for Auth page */
+}
+
+.page-chat {
+    background-color: #eef7ec; /* Clean subtle tint for Chat page */
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #c5d8cd;
+    border-radius: 4px;
+    border: 1px solid var(--color-border-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-muted);
+}
+
+/* Outlined Utility Classes */
+.geo-box {
+    border: 2.5px solid var(--color-border-dark);
+    box-shadow: var(--shadow-flat);
+    border-radius: var(--radius-md);
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.geo-box:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-flat-hover);
+}
+
+.geo-button {
+    border: 2.5px solid var(--color-border-dark);
+    background-color: var(--color-text-charcoal);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-flat);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+}
+
+.geo-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-flat-hover);
+}
+
+.geo-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--color-border-dark);
+}
+
+.geo-button-secondary {
+    background-color: var(--color-bg-cyan);
+    color: var(--color-text-charcoal);
+}
+
+.geo-button-accent {
+    background-color: var(--color-bg-lavender);
+    color: var(--color-text-charcoal);
+}
+
+.geo-button-white {
+    background-color: #ffffff;
+    color: var(--color-text-charcoal);
+}
+
+.geo-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2.5px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+    background-color: #ffffff;
+    color: var(--color-text-charcoal);
+    font-weight: 500;
+    outline: none;
+    transition:
+        box-shadow 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.geo-input:focus {
+    box-shadow: var(--shadow-flat-sm);
+    background-color: #ffffff;
+}
+
+.geo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    border: 2px solid var(--color-border-dark);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--color-bg-white);
+    box-shadow: var(--shadow-flat-sm);
+}
+
+/* Background Pattern Decoration */
+.bg-grid-dots {
+    background-image: radial-gradient(
+        var(--color-border-muted) 1px,
+        transparent 1px
+    );
+    background-size: 24px 24px;
+}
