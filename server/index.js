@@ -14,8 +14,12 @@ dotenv.config({ path: "./.env" });
 const app = express();
 const server = http.createServer(app);
 
+const allowOrigins = process.env.CLIENT_URL.split(",").map((origin) =>
+    origin.trim(),
+);
+
 // Enable CORS & Body Parser
-app.use(cors({ origin: process.env.CLIENT_URL || "*" }));
+app.use(cors({ origin: allowOrigins }));
 app.use(express.json());
 
 // API Endpoints
@@ -34,7 +38,7 @@ app.get("/health", (req, res) => {
 // Initialize Socket.io Server
 const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URL || "*",
+        origin: allowOrigins,
         methods: ["GET", "POST"],
     },
 });
